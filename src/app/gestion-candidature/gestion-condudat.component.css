@@ -1,0 +1,55 @@
+.container {
+  width: 100%;
+  padding: 0 10px;
+}
+
+.content {
+  max-width: 600px;
+  width: 100%;
+  padding: 10px;
+  margin-top: 40px;
+  background-color: white;
+  border-radius: 8px;
+}
+
+:host ::ng-deep .mat-form-field-wrapper {
+  padding-bottom: 0 !important;
+}
+
+:host ::ng-deep .mat-form-field-infix {
+  width: auto;
+}
+
+:host mat-form-field {
+  width: 100%;
+}
+
+.btn {
+  color: white;
+}
+
+.add-btn {
+  background-color: rgb(48, 63, 159);
+}
+
+.del-btn {
+  background-color: rgb(228, 69, 69);
+}
+
+.edit-btn {
+  background-color: rgb(237, 240, 77);
+}
+
+.candidat-container {
+  padding: 5px;
+  padding-left: 10px;
+  border: 1px solid rgb(48, 63, 159);
+  border-left: 5px solid rgb(48, 63, 159);
+}
+
+span {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  overflow-wrap: inherit;
+}

@@ -1,0 +1,33 @@
+<div fxLayout="column" fxLayoutAlign="center center" class="container">
+    <div class="content" fxLayout="column" fxLayoutGap="20px">
+      <div fxLayout="column" fxLayoutGap="20px">
+        <h2>list de candidature</h2>
+        <div class="candidat-container" *ngFor="let item of candidature; let i = index">
+          <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20px">
+            <div fxLayout="column" fxLayoutGap="10px" fxFlex>
+              <span><strong>nom complet : </strong>{{ item.f_name }}</span>
+              <span><strong>diplome : </strong>{{ item.diplome }}</span>
+              <span><strong>date de postuler : </strong>{{ item.dateCreation }}</span>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="end end" fxLayoutGap="5px">
+              <button
+                mat-raised-button
+                class="btn del-btn"
+                (click)="valider(item)"
+              >
+                valider
+              </button>
+              <button
+                mat-raised-button
+                class="btn edit-btn"
+                (click)="rejeter(item)"
+              >
+                rejeter
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

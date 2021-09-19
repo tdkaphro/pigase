@@ -1,0 +1,38 @@
+<div fxLayout="column" fxLayoutAlign="center center" class="container">
+    <div class="content" fxLayout="column" fxLayoutGap="20px">
+      <div fxLayout="column" fxLayoutGap="20px">
+        <h2>list offre emploi</h2>
+        <div
+          class="entretien-container"
+          *ngFor="let item of items; let i = index"
+        >
+          <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20px">
+            <div fxLayout="column" fxLayoutGap="10px" fxFlex>
+              <span
+                ><strong>titre : </strong
+                >{{ item.titre }}</span
+              >
+              <span
+                ><strong>Description : </strong>{{ item.description }}</span
+              >
+              <span
+                ><strong>salaire : </strong>{{ item.salary}}
+              </span>
+              <span
+              ><strong>nombre de candidature : </strong>{{ item.candidature}}
+            </span>
+            <button
+            mat-raised-button
+            class="btn edit-btn"
+            (click)="consultercandidature(item, i)"
+          >
+            consulter les candidature
+          </button>
+            </div>
+          
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

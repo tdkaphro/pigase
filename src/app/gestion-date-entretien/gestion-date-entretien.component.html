@@ -1,0 +1,94 @@
+<div fxLayout="column" fxLayoutAlign="center center" class="container">
+  <div class="content" fxLayout="column" fxLayoutGap="20px">
+    <div
+      [formGroup]="form"
+      fxLayout="row"
+      fxLayoutAlign="center center"
+      fxLayoutGap="10px"
+      fxLayout.xs="column"
+    >
+      <mat-form-field appearance="outline" fxFlex>
+        <mat-label>candidat</mat-label>
+        <mat-select formControlName="candidat" required (selectionChange)="someMethod($event.value)">
+          <mat-option *ngFor="let item of employees"   [value]="item">
+            {{ item.f_name }} {{ item.l_name }}
+            </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline" fxFlex>
+        <mat-label>candidature</mat-label>
+        <mat-select formControlName="employee" required  [disabled]="candidatures.length == 0">
+          <mat-option *ngFor="let item of candidatures" [value]="item">
+            {{ item.titre }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline" fxFlex>
+        <mat-label>date</mat-label>
+        <input
+          formControlName="date"
+          matInput
+          required
+          [matDatepicker]="picker"
+          [min]="minDate"
+        />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <div *ngIf="editItem" fxLayout="row" fxLayoutGap="10px">
+        <button mat-raised-button class="btn add-btn" (click)="saveEdit()">
+          save
+        </button>
+        <button mat-raised-button (click)="cancelEdit()">cancel</button>
+      </div>
+      <button
+        *ngIf="!editItem"
+        mat-raised-button
+        class="btn add-btn"
+        (click)="addEntretien()"
+        [disabled]="form.invalid"
+      >
+        add
+      </button>
+    </div>
+    <div fxLayout="column" fxLayoutGap="20px">
+      <h2>list of Entretiens</h2>
+      <div
+        class="entretien-container"
+        *ngFor="let item of items; let i = index"
+      >
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20px">
+          <div fxLayout="column" fxLayoutGap="10px" fxFlex>
+            <span
+              ><strong>candidat full name : </strong
+              >{{ item.candidat.f_name }} {{ item.candidat.l_name }}</span
+            >
+            <span
+              ><strong>titre d'offre: </strong>{{ item.employee.titre }}
+              </span
+            >
+            <span
+              ><strong>date : </strong>{{ item.date | date: "dd/MM/yyyy" }}
+            </span>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="end end" fxLayoutGap="5px">
+            <button
+              mat-raised-button
+              class="btn del-btn"
+              (click)="deleteEntretien(item)"
+            >
+              delete
+            </button>
+            <button
+              mat-raised-button
+              class="btn edit-btn"
+              (click)="editEntretien(item, i)"
+            >
+              edit
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

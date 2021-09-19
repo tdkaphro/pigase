@@ -1,0 +1,67 @@
+<div fxLayout="column" fxLayoutAlign="center center" class="container">
+  <div class="content" fxLayout="column" fxLayoutGap="20px">
+    <div
+      [formGroup]="form"
+      fxLayout="row"
+      fxLayoutAlign="center center"
+      fxLayoutGap="10px"
+      fxLayout.xs="column"
+    >
+      <mat-form-field appearance="outline">
+        <mat-label>candidat full name</mat-label>
+        <input formControlName="full_name" matInput required />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>candidat login</mat-label>
+        <input formControlName="login" matInput required />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>candidat password</mat-label>
+        <input formControlName="password" matInput required />
+      </mat-form-field>
+      <div *ngIf="editItem" fxLayout="row" fxLayoutGap="10px">
+        <button mat-raised-button class="btn add-btn" (click)="saveEdit()">
+          save
+        </button>
+        <button mat-raised-button (click)="cancelEdit()">cancel</button>
+      </div>
+      <button
+        *ngIf="!editItem"
+        mat-raised-button
+        class="btn add-btn"
+        (click)="addCandidat()"
+        [disabled]="form.invalid"
+      >
+        add
+      </button>
+    </div>
+    <div fxLayout="column" fxLayoutGap="20px">
+      <h2>list of candidats</h2>
+      <div class="candidat-container" *ngFor="let item of items; let i = index">
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20px">
+          <div fxLayout="column" fxLayoutGap="10px" fxFlex>
+            <span><strong>full name : </strong>{{ item.full_name }}</span>
+            <span><strong>login : </strong>{{ item.login }}</span>
+            <span><strong>password : </strong>{{ item.password }}</span>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="end end" fxLayoutGap="5px">
+            <button
+              mat-raised-button
+              class="btn del-btn"
+              (click)="deleteCandidat(item.login)"
+            >
+              delete
+            </button>
+            <button
+              mat-raised-button
+              class="btn edit-btn"
+              (click)="editCandidat(item, i)"
+            >
+              edit
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

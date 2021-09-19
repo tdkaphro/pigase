@@ -28,6 +28,7 @@ import { ListeCandidatureComponent } from './liste-candidature/liste-candidature
 import { QuestionsComponent } from './questions/questions.component';
 import { HttpClientModule } from '@angular/common/http';
 import { QuestionFormComponent } from './question-form/question-form.component';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -42,8 +43,10 @@ import { QuestionFormComponent } from './question-form/question-form.component';
     ListeCandidatureComponent,
     QuestionsComponent,
     QuestionFormComponent,
+    
   ],
   imports: [
+  
     HttpClientModule,
     FlexLayoutModule,
     BrowserModule,
@@ -66,6 +69,10 @@ import { QuestionFormComponent } from './question-form/question-form.component';
     MatDatepickerModule,
     MatNativeDateModule,
     MatSelectModule,
+    AgmCoreModule.forRoot({
+      apiKey: "AIzaSyBHzTL5l686BNSSI1S3jm7YV2v8JHcZuhQ",
+      
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,5 +1,17 @@
 <div fxLayout="column" fxLayoutAlign="center center" class="container">
-    <div class="content" fxLayout="column" fxLayoutGap="20px">
+  <div class="back-button-cont w-100" fxFlex="100" fxLayout="row" fxLayoutAlign="start start">
+  <button
+style="    margin-top:24px;
+"
+  mat-flat-button
+  color="accent"
+  class="cairo b-10 mt-12 mr-20"
+  [routerLink]="['/']"
+>
+<mat-icon>arrow_back</mat-icon>
+</button>
+  </div>
+  <div class="content" fxLayout="column" fxLayoutGap="20px">
       <div fxLayout="column" fxLayoutGap="20px">
         <h2>list offre emploi</h2>
         <div
@@ -20,7 +32,15 @@
               </span>
               <span *ngIf="item.statut"
               ><strong>statut : </strong>{{ item.statut}}
+            
             </span>
+            <div class="agm-container" fxFlex="60" fxFlex.md="35" fxFlex.sm="50" fxFlex.xs="100">
+              <agm-map [zoom]="13"  [latitude]="item.latitude" [longitude]="item.longitude">
+                  <agm-marker #gm [latitude]="item.latitude" [longitude]="item.longitude"
+                    [label]="item.titre">
+                  </agm-marker>
+              </agm-map>
+            </div>
             <button
             mat-raised-button *ngIf="item.statut =='valider'"
             class="btn edit-btn"

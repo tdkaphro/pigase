@@ -1,4 +1,16 @@
 <div fxLayout="column" fxLayoutAlign="center center" class="container">
+  <div class="back-button-cont w-100" fxFlex="100" fxLayout="row" fxLayoutAlign="start start">
+    <button
+  style="    margin-top:24px;
+  "
+    mat-flat-button
+    color="accent"
+    class="cairo b-10 mt-12 mr-20"
+    [routerLink]="['/']"
+  >
+  <mat-icon>arrow_back</mat-icon>
+  </button>
+    </div>
   <div class="content" fxLayout="column" fxLayoutGap="20px">
     <div
       [formGroup]="form"

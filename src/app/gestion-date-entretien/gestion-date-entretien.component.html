@@ -1,4 +1,16 @@
 <div fxLayout="column" fxLayoutAlign="center center" class="container">
+  <div class="back-button-cont w-100" fxFlex="100" fxLayout="row" fxLayoutAlign="start start">
+    <button
+  style="    margin-top:24px;
+  "
+    mat-flat-button
+    color="accent"
+    class="cairo b-10 mt-12 mr-20"
+    [routerLink]="['/']"
+  >
+  <mat-icon>arrow_back</mat-icon>
+  </button>
+    </div>
   <div class="content" fxLayout="column" fxLayoutGap="20px">
     <div
       [formGroup]="form"
@@ -9,7 +21,9 @@
     >
       <mat-form-field appearance="outline" fxFlex>
         <mat-label>candidat</mat-label>
-        <mat-select formControlName="candidat" required (selectionChange)="someMethod($event.value)">
+        <mat-select formControlName="candidat" 
+        [disabled]='fromedit'
+        required (selectionChange)="someMethod($event.value)">
           <mat-option *ngFor="let item of employees"   [value]="item">
             {{ item.f_name }} {{ item.l_name }}
             </mat-option>

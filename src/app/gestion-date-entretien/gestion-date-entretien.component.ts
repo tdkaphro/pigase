@@ -2,6 +2,7 @@ import { list_employees, list_entretiens, OffreEmploi } from './../global';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { list_candidats } from '../global';
+import { Alert } from 'selenium-webdriver';
 
 @Component({
   selector: 'app-gestion-date-entretien',
@@ -18,7 +19,7 @@ export class GestionDateEntretienComponent implements OnInit {
   candidatures=[]
   editIndex = -1;
   editItem = null;
-
+  fromedit=false;
   minDate;
 
   constructor(private fb: FormBuilder) {}
@@ -72,6 +73,7 @@ export class GestionDateEntretienComponent implements OnInit {
   }
 
   editEntretien(item, index) {
+
     this.editIndex = index;
     this.editItem = item;
     this.items.splice(index, 1);
@@ -79,9 +81,13 @@ export class GestionDateEntretienComponent implements OnInit {
     this.form.controls['candidat'].setValue(item.candidat);
     this.form.controls['date'].setValue(item.date);
     window.scrollTo(0, 0);
+    this.fromedit=true
+
   }
 
   saveEdit() {
+    this.fromedit=false;
+
     const entretien = this.form.getRawValue();
     const index = this.items.findIndex((element) => {
       return (

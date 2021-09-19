@@ -28,6 +28,8 @@ export const OffreEmploi = [
     description: 'Experience with server-side frameworks such as python, ruby, php, Java, ASP   ',
     salary : '1200TND - 1500 TND',
     candidature : 0,
+    latitude:36.80278	,
+    longitude:10.17972,
     list_candidats :  []
   },
   {
@@ -36,7 +38,9 @@ export const OffreEmploi = [
     description: 'Experience ios dev  ',
     salary : '1400TND - 1500 TND',
     candidature : 0,
-    list_candidats :  []
+    list_candidats :  [],
+    latitude:36.8587351	,
+    longitude:10.188232
 
   },
   {
@@ -45,7 +49,9 @@ export const OffreEmploi = [
     description: 'lead a team  ',
     salary : '1700TND - 2000 TND',
     candidature : 0,
-    list_candidats : []
+    list_candidats : [],
+    latitude:36.7624363	,
+    longitude:9.8336191
 
   },
 ];

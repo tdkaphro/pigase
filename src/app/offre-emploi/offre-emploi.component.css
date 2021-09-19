@@ -53,4 +53,6 @@
     white-space: nowrap;
     overflow-wrap: inherit;
   }
-  
+  .w-100{
+    width:100%
+      }
